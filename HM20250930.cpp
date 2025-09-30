@@ -39,17 +39,21 @@ int main()
 
     long long* Inputs = new long long[Counter];
 
-    cin >> Inputs[0];
+    //cin >> Inputs[0];
+	Inputs[0] = ((long long)rand() << 47) + ((long long)rand() << 32) + ((long long)rand() << 17) + ((long long)rand() << 2) + (((long long)rand() % 2) * 2);
 
     long long Result = FindNPOT(Inputs[0]);
 
     for (int i = 1; i < Counter; ++i)
     {
-        cin >> Inputs[i];
+        //cin >> Inputs[i];
+        Inputs[i] = ((long long)rand() << 47) + ((long long)rand() << 32) + ((long long)rand() << 17) + ((long long)rand() << 2) + (((long long)rand() % 2) * 2);
 		Result ^= FindNPOT(Inputs[i]);
     }
 
     cout << Result << endl;
+
+    delete[] Inputs;
 
     return 0;
 }
