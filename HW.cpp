@@ -39,15 +39,13 @@ int main()
 
     long long* Inputs = new long long[Counter];
 
-    //cin >> Inputs[i];
-    Inputs[0] = (long long)rand() * (long long)rand() * (long long)rand() * (long long)rand() * 8;
+    cin >> Inputs[0];
 
     long long Result = FindNPOT(Inputs[0]);
 
     for (int i = 1; i < Counter; ++i)
     {
-        //cin >> Inputs[i];
-        Inputs[i] = (long long)rand() * (long long)rand() * (long long)rand() * (long long)rand() * 8;
+        cin >> Inputs[i];
 		Result ^= FindNPOT(Inputs[i]);
     }
 
