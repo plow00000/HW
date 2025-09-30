@@ -16,7 +16,7 @@ long long FindNPOT(const long long n)
     {
         if (CurrentNumber > power)
         {
-            power = power << 2;
+            power = power << 1;
         }
         else
         {
@@ -39,17 +39,16 @@ int main()
 
     long long* Inputs = new long long[Counter];
 
-    for (int i = 0; i < Counter; ++i)
-    {
-		cout << "Enter number " << i + 1 << " : ";
-        cin >> Inputs[i];
-    }
+    //cin >> Inputs[i];
+    Inputs[0] = (long long)rand() * (long long)rand() * (long long)rand() * (long long)rand() * 8;
 
-    int Result = FindNPOT(Inputs[0]);
+    long long Result = FindNPOT(Inputs[0]);
 
     for (int i = 1; i < Counter; ++i)
     {
-        Result ^= FindNPOT(Inputs[i]);
+        //cin >> Inputs[i];
+        Inputs[i] = (long long)rand() * (long long)rand() * (long long)rand() * (long long)rand() * 8;
+		Result ^= FindNPOT(Inputs[i]);
     }
 
     cout << Result << endl;
