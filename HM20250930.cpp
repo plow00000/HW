@@ -2,14 +2,14 @@
 
 using namespace std;
 
-long long FindNPOT(const long long n)
+unsigned long long FindNPOT(const unsigned long long n)
 {
-    long long CurrentNumber = n;
-    long long power = 2;
+    unsigned long long CurrentNumber = n;
+    unsigned long long power = 2;
 
     if (CurrentNumber <= 1)
     {
-        return 2;
+        return power;
     }
 
     while (true)
@@ -37,21 +37,21 @@ int main()
         return 0;
 	}
 
-    long long* Inputs = new long long[Counter];
+    unsigned long long* Inputs = new unsigned long long[Counter];
 
-    cin >> Inputs[0];
-	//Inputs[0] = ((long long)rand() << 47) + ((long long)rand() << 32) + ((long long)rand() << 17) + ((long long)rand() << 2) + (((long long)rand() % 2) * 2);
+    //cin >> Inputs[0];
+	Inputs[0] = ((unsigned long long)rand() << 48) + ((unsigned long long)rand() << 33) + ((unsigned long long)rand() << 18) + ((long long)rand() << 3) + (((unsigned long long)rand() % 4) << 1);
 
-    long long Result = FindNPOT(Inputs[0]);
+    unsigned long long Result = FindNPOT(Inputs[0]);
 
     for (int i = 1; i < Counter; ++i)
     {
-        cin >> Inputs[i];
-        //Inputs[i] = ((long long)rand() << 47) + ((long long)rand() << 32) + ((long long)rand() << 17) + ((long long)rand() << 2) + (((long long)rand() % 2) * 2);
+        //cin >> Inputs[i];
+        Inputs[i] = ((unsigned long long)rand() << 48) + ((unsigned long long)rand() << 33) + ((unsigned long long)rand() << 18) + ((unsigned long long)rand() << 3) + (((unsigned long long)rand() % 4) << 1);
 		Result ^= FindNPOT(Inputs[i]);
     }
 
-    cout << Result << endl;
+    cout << endl << Result << endl;
 
     delete[] Inputs;
 
