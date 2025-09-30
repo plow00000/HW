@@ -2,10 +2,10 @@
 
 using namespace std;
 
-int FindNPOT(const int n)
+long long FindNPOT(const long long n)
 {
-    int CurrentNumber = n;
-    int power = 2;
+    long long CurrentNumber = n;
+    long long power = 2;
 
     if (CurrentNumber <= 1)
     {
@@ -37,7 +37,7 @@ int main()
         return 0;
 	}
 
-    int* Inputs = new int[Counter];
+    long long* Inputs = new long long[Counter];
 
     for (int i = 0; i < Counter; ++i)
     {
