@@ -16,7 +16,7 @@ long long FindNPOT(const long long n)
     {
         if (CurrentNumber > power)
         {
-            power *= 2;
+            power = power << 2;
         }
         else
         {
@@ -31,7 +31,7 @@ int main()
 
     cin >> Counter;
 
-    if (Counter <= 0)
+    if (Counter <= 0 || Counter > (1 << 18))
     {
         cout << 0 << endl;
         return 0;
