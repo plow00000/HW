@@ -5,11 +5,11 @@ using namespace std;
 int FindNPOT(const int n)
 {
     int CurrentNumber = n;
-    int power = 1;
+    int power = 2;
 
-    if (CurrentNumber <= 0)
+    if (CurrentNumber <= 1)
     {
-        return 0;
+        return 2;
     }
 
     while (true)
@@ -28,23 +28,26 @@ int FindNPOT(const int n)
 int main()
 {
     int Counter = 0;
-    string CounterString[3] = { "First :  ", "Second : ", "Thrid :  " };
 
-    cout << "Number of Inputs : ";
     cin >> Counter;
 
-    int* Inputs = new int[Counter];
-    int Result = 0;
-
-    for (int i = 0; i < Counter; i++)
+    if (Counter <= 0)
     {
-        cout << CounterString[i];
+        cout << 0 << endl;
+        return 0;
+	}
+
+    int* Inputs = new int[Counter];
+
+    for (int i = 0; i < Counter; ++i)
+    {
+		cout << "Enter number " << i + 1 << " : ";
         cin >> Inputs[i];
     }
 
-    Result = FindNPOT(Inputs[0]);
+    int Result = FindNPOT(Inputs[0]);
 
-    for (int i = 1; i < Counter; i++)
+    for (int i = 1; i < Counter; ++i)
     {
         Result ^= FindNPOT(Inputs[i]);
     }
